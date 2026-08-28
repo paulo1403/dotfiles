@@ -40,3 +40,13 @@ output_path = "~/.config/hypr/matugen.lua"
 [templates.rofi]
 input_path = "~/.config/matugen/templates/rofi-matugen.rasi"
 output_path = "~/.config/rofi/themes/matugen.rasi"
+
+# code OSS (vscode, sigue wallpaper)
+[templates.code]
+input_path = "~/.config/matugen/templates/code-oss-settings.json"
+output_path = "~/.config/Code - OSS/User/settings.json"
+
+# code (vscode regular, sigue wallpaper)
+[templates.code-regular]
+input_path = "~/.config/matugen/templates/code-oss-settings.json"
+output_path = "~/.config/Code/User/settings.json"
