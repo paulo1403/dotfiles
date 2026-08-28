@@ -1,0 +1,18 @@
+configuration {
+    modi: "drun,run,window";
+    font: "FiraCode Nerd Font 13";
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    terminal: "ghostty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "  󰀻 Apps  ";
+    display-run: "  󰫢 Ejecutar  ";
+    display-window: "  󰊯 Ventanas  ";
+    sidebar-mode: true;
+    border-radius: 10;
+}
+
+@theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
