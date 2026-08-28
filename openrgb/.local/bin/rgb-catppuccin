@@ -1,0 +1,12 @@
+#!/bin/bash
+# Aplica Catppuccin Macchiato Teal (8bd5ca) a perifericos Logitech via OpenRGB
+# Uso: rgb-catppuccin [hex]  (ej: rgb-catppuccin 8839EF para mauve)
+COLOR=${1:-8bd5ca}
+# servidor openrgb si no corre
+pgrep -x openrgb >/dev/null || openrgb --server --noautoconnect >/dev/null 2>&1 &
+sleep 1
+openrgb --client 127.0.0.1:6742 --device 0 --mode static --color $COLOR --brightness 100 2>/dev/null
+openrgb --client 127.0.0.1:6742 --device 1 --mode static --color $COLOR --brightness 100 2>/dev/null
+openrgb --client 127.0.0.1:6742 --device 2 --mode static --color $COLOR --brightness 100 2>/dev/null || true
+# fallback solaar si openrgb no detecta (no hace color pero mantiene perfil)
+echo "RGB -> #$COLOR"
