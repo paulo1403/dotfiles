@@ -30,3 +30,8 @@ output_path = "~/.config/btop/matugen.theme"
 [templates.opencode]
 input_path = "~/.config/matugen/templates/opencode-theme.json"
 output_path = "~/.config/opencode/themes/matugen.json"
+
+# hyprland borders / decoration
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/hyprland-matugen.lua"
+output_path = "~/.config/hypr/matugen.lua"

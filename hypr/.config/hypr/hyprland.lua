@@ -237,3 +237,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("sleep 3 && solaar config 1 onboard_profiles Disabled && solaar config 1 rgb_control Solaar && solaar config 1 rgb_zone_1 '!LEDEffectSetting {ID: 1, color: 11501035}' && solaar config 1 rgb_zone_2 '!LEDEffectSetting {ID: 1, color: 11501035}' && solaar config 2 onboard_profiles Disabled && solaar config 2 rgb_control Solaar && solaar config 2 rgb_zone_1 '!LEDEffectSetting {ID: 1, color: 11501035}'")
     hl.exec_cmd("~/.local/bin/rgb-catppuccin 8bd5ca &")
 end)
+
+-- colores dinámicos de matugen (bordes hyprland siguen wallpaper)
+pcall(dofile, os.getenv("HOME") .. "/.config/hypr/matugen.lua")
