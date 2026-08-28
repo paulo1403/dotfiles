@@ -12,6 +12,12 @@ Personal dotfiles for **Arch Linux + Hyprland**, managed with [GNU stow](https:/
   - Wallpaper-driven UI (wayle bar, gtk, ghostty, cava, btop) follows the current wallpaper through matugen → **Mocha** palette.
   - Static accents in this repo use **Macchiato (Teal)** for apps matugen does not touch (rofi, starship, fastfetch, cursor).
 
+## Dynamic theming
+
+Wallpaper → **matugen** regenerates all UI colors. Includes:
+- `matugen/templates/opencode-theme.json` → `~/.config/opencode/themes/matugen.json` (TUI `matugen` theme, set in `tui.json`)
+- `~/.config/ghostty`, `gtk`, `cava`, `btop` (see `matugen/` package)
+
 ## Structure
 
 ```
@@ -24,6 +30,12 @@ dotfiles/
 ├── cava/            # .config/cava/shaders — visualizer shaders
 └── cursors/         # .icons — Catppuccin-Macchiato-Teal cursor (X11 + hypr)
 ```
+
+## Peripherals
+
+- **Mouse:** G502 X PLUS via **OpenLogi** (`openlogi-agent.service`, Lightspeed receiver `c547`)
+- **Keyboard:** G915 via **OpenRGB** + `rgb-catppuccin` (OpenLogi does not yet claim the `c541` receiver)
+- RGB script: `~/.local/bin/rgb-catppuccin [hex]` — autostart in `hypr/hyprland.lua`
 
 ## Install
 
