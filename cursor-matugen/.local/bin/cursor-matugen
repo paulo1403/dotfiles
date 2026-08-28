@@ -36,7 +36,7 @@ if [ -d "$OUT" ]; then
   cat > "$HOME/.icons/matugen-cursor/index.theme" <<THEME
 [Icon Theme]
 Name=matugen-cursor
-Inherits=Catppuccin-Macchiato-Teal-Cursors
+Inherits=Bibata-Modern-Classic
 THEME
   hyprctl setcursor matugen-cursor 24 2>/dev/null || true
   echo "cursor -> $PRIMARY"
