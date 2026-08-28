@@ -150,7 +150,7 @@ for i = 1, 10 do
 end
 
 -- Applications
-hl.bind(mainMod .. " + Return",       hl.dsp.exec_cmd("ghostty"))
+hl.bind(mainMod .. " + Return",       hl.dsp.exec_cmd("alacritty"))
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd("firefox-developer-edition"))
 hl.bind(mainMod .. " + SHIFT + B",    hl.dsp.exec_cmd("firefox-developer-edition"))
 hl.bind(mainMod .. " + SHIFT + N",    hl.dsp.exec_cmd("nvim"))

@@ -1,0 +1,58 @@
+[window]
+opacity = 0.95
+padding = { x = 8, y = 4 }
+
+[font]
+size = 9.5
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[terminal.shell]
+program = "/usr/bin/zsh"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "{{ colors.background.default.hex }}"
+foreground = "{{ colors.on_background.default.hex }}"
+
+[colors.cursor]
+text = "{{ colors.background.default.hex }}"
+cursor = "{{ colors.primary.default.hex }}"
+
+[colors.selection]
+text = "{{ colors.on_primary.default.hex }}"
+background = "{{ colors.primary.default.hex }}"
+
+[colors.normal]
+black   = "{{ colors.background.default.hex }}"
+red     = "{{ colors.error.default.hex }}"
+green   = "{{ colors.secondary.default.hex }}"
+yellow  = "{{ colors.tertiary.default.hex }}"
+blue    = "{{ colors.primary.default.hex }}"
+magenta = "{{ colors.primary.default.hex }}"
+cyan    = "{{ colors.secondary.default.hex }}"
+white   = "{{ colors.on_background.default.hex }}"
+
+[colors.bright]
+black   = "{{ colors.surface_variant.default.hex }}"
+red     = "{{ colors.error.default.hex }}"
+green   = "{{ colors.secondary.default.hex }}"
+yellow  = "{{ colors.tertiary.default.hex }}"
+blue    = "{{ colors.primary.default.hex }}"
+magenta = "{{ colors.primary.default.hex }}"
+cyan    = "{{ colors.secondary.default.hex }}"
+white   = "{{ colors.on_background.default.hex }}"
+
+[colors.dim]
+black   = "{{ colors.outline.default.hex }}"
+red     = "{{ colors.error.default.hex }}"
+green   = "{{ colors.secondary.default.hex }}"
+yellow  = "{{ colors.tertiary.default.hex }}"
+blue    = "{{ colors.primary.default.hex }}"
+magenta = "{{ colors.primary.default.hex }}"
+cyan    = "{{ colors.secondary.default.hex }}"
+white   = "{{ colors.outline.default.hex }}"

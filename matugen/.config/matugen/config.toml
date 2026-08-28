@@ -50,3 +50,8 @@ output_path = "~/.config/Code - OSS/User/settings.json"
 [templates.code-regular]
 input_path = "~/.config/matugen/templates/code-oss-settings.json"
 output_path = "~/.config/Code/User/settings.json"
+
+# alacritty (terminal, sigue wallpaper)
+[templates.alacritty]
+input_path = "~/.config/matugen/templates/alacritty.toml"
+output_path = "~/.config/alacritty/alacritty.toml"
