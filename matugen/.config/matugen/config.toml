@@ -1,0 +1,32 @@
+[config]
+contrast = 0.0
+variation = "standard"
+
+# gtk3 + gtk4 (misma hoja de colores)
+[templates.gtk3]
+input_path = "~/.config/matugen/templates/gtk.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
+
+[templates.gtk4]
+input_path = "~/.config/matugen/templates/gtk.css"
+output_path = "~/.config/gtk-4.0/gtk.css"
+
+# ghostty: se sourcea desde ~/.config/ghostty/config
+[templates.ghostty]
+input_path = "~/.config/matugen/templates/ghostty-theme.conf"
+output_path = "~/.config/ghostty/matugen-theme.conf"
+
+# cava (config completa)
+[templates.cava]
+input_path = "~/.config/matugen/templates/cava_theme"
+output_path = "~/.config/cava/config"
+
+# btop
+[templates.btop]
+input_path = "~/.config/matugen/templates/btop.theme"
+output_path = "~/.config/btop/matugen.theme"
+
+# opencode (tui theme)
+[templates.opencode]
+input_path = "~/.config/matugen/templates/opencode-theme.json"
+output_path = "~/.config/opencode/themes/matugen.json"
