@@ -35,3 +35,8 @@ output_path = "~/.config/opencode/themes/matugen.json"
 [templates.hyprland]
 input_path = "~/.config/matugen/templates/hyprland-matugen.lua"
 output_path = "~/.config/hypr/matugen.lua"
+
+# rofi (launcher, sigue wallpaper)
+[templates.rofi]
+input_path = "~/.config/matugen/templates/rofi-matugen.rasi"
+output_path = "~/.config/rofi/themes/matugen.rasi"
