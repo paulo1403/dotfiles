@@ -233,6 +233,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprexpose")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("~/.local/bin/rgb-catppuccin 8bd5ca &")
+    hl.exec_cmd("~/.local/bin/cursor-matugen-watch &")
 end)
 
 -- colores dinámicos de matugen (bordes hyprland siguen wallpaper)

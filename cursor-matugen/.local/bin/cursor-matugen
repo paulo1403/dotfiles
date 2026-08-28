@@ -1,0 +1,35 @@
+#!/bin/bash
+# genera cursor XCursor dinámico con color primary de matugen
+set -e
+COLOR_JSON="$HOME/.cache/wayle/matugen-colors.json"
+OUT_ICON="$HOME/.icons/matugen-cursor"
+TMPDIR=$(mktemp -d)
+mkdir -p "$TMPDIR/cursors_scalable"
+# extrae primary color
+PRIMARY=$(python3 -c "import json; d=json.load(open('$COLOR_JSON')); print(d['colors']['primary']['default']['color'])" 2>/dev/null || echo "#8bd5ca")
+# genera SVG simple flecha con fill=PRIMARY
+cat > "$TMPDIR/cursors_scalable/left_ptr.svg" <<SVG
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 2 2 L 2 28 L 9 21 L 13 29 L 17 27 L 13 19 L 21 19 Z" fill="$PRIMARY" stroke="#1a1a1a" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>
+SVG
+# copia a otros nombres comunes
+for n in default arrow watch wait hand2 hand1 move crosshair xterm left_side right_side top_side bottom_side; do cp "$TMPDIR/cursors_scalable/left_ptr.svg" "$TMPDIR/cursors_scalable/$n.svg" 2>/dev/null; done
+mkdir -p "$OUT_ICON"
+# index.theme
+cat > "$OUT_ICON/index.theme" <<THEME
+[Icon Theme]
+Name=matugen-cursor
+Inherits=Catppuccin-Macchiato-Teal-Cursors
+THEME
+# genera XCursor via kcursorgen (si existe)
+if command -v kcursorgen >/dev/null 2>&1; then
+  mkdir -p "$OUT_ICON/cursors"
+  kcursorgen --svg-theme-to-xcursor --svg-dir "$TMPDIR/cursors_scalable" --xcursor-dir "$OUT_ICON/cursors" --sizes 24 --scales 1 2>/dev/null || true
+  # fallback: si kcursorgen no genera, copia svg como cursor (no ideal)
+fi
+rm -rf "$TMPDIR"
+# aplica via hyprctl (live)
+hyprctl setcursor matugen-cursor 24 2>/dev/null || true
+# también actualiza XCURSOR_THEME para apps
+echo "cursor -> $PRIMARY"

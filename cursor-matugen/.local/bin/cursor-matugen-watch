@@ -1,0 +1,16 @@
+#!/bin/bash
+# watcher live para cursor matugen (poll cada 3s, sin inotifywait)
+COLOR_JSON="$HOME/.cache/wayle/matugen-colors.json"
+LAST=""
+# genera inicial
+~/.local/bin/cursor-matugen 2>/dev/null || true
+while true; do
+  sleep 3
+  [ -f "$COLOR_JSON" ] || continue
+  CUR=$(python3 -c "import json; print(json.load(open('$COLOR_JSON'))['colors']['primary']['default']['color'])" 2>/dev/null || echo "")
+  [ -z "$CUR" ] && continue
+  if [ "$CUR" != "$LAST" ]; then
+    LAST="$CUR"
+    ~/.local/bin/cursor-matugen 2>/dev/null || true
+  fi
+done
