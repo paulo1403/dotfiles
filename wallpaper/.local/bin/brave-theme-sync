@@ -1,0 +1,23 @@
+#!/bin/sh
+# sync matugen primary -> Brave theme custom (oscuro intacto, sin GTK claro)
+# ponytail: solo escribe con Brave cerrado (pisa Preferences al salir); si corre, avisa
+PREF="$HOME/.config/BraveSoftware/Brave-Browser-Nightly/Default/Preferences"
+hex=$(grep '^primary' "$HOME/.config/wayle/matugen/colors.toml" 2>/dev/null | cut -d'"' -f2 | tr -d '#')
+[ -n "$hex" ] || exit 0
+if pgrep -f "Brave-Browser-Nightly" >/dev/null; then
+  notify-send -t 4000 'Brave' "cierra Brave para aplicar tema #$hex"
+  exit 0
+fi
+python3 - "$PREF" "$hex" <<'EOF'
+import json, sys, shutil
+pref, hexv = sys.argv[1], sys.argv[2]
+shutil.copy(pref, pref + '.bak')
+d = json.load(open(pref))
+argb = 0xFF000000 | int(hexv, 16)
+d.setdefault('browser', {}).setdefault('theme', {})['user_color2'] = argb - 0x100000000
+t = d.setdefault('extensions', {}).setdefault('theme', {})
+t['id'] = 'user_color_theme_id'
+t['system_theme'] = 0  # 0=custom clásico, 1=GTK, 2=QT
+json.dump(d, open(pref, 'w'))
+EOF
+notify-send -t 4000 'Brave' "tema #$hex aplicado"

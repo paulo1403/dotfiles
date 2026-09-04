@@ -21,6 +21,8 @@ hyprctl reload >/dev/null 2>&1
 # ponytail: usa script existente, sin daemon nuevo
 hex=$(grep '^primary' "$HOME/.config/wayle/matugen/colors.toml" 2>/dev/null | cut -d'"' -f2 | tr -d '#')
 [ -n "$hex" ] && { echo "$hex" > "$HOME/.cache/last-rgb"; "$HOME/.local/bin/rgb-catppuccin" "$hex" >/dev/null 2>&1 & }
+# brave: theme custom desde primary (solo escribe con Brave cerrado, si no avisa)
+"$HOME/.local/bin/brave-theme-sync" >/dev/null 2>&1 &
 # cursor: merge solo colores, resto de settings intacto
 python3 - "$HOME/.config/Cursor/User/settings.json" "$HOME/.cache/matugen/cursor-colors.json" <<'EOF' >/dev/null 2>&1
 import json, sys
