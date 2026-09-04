@@ -60,3 +60,8 @@ output_path = "~/.config/Code/User/settings.json"
 [templates.alacritty]
 input_path = "~/.config/matugen/templates/alacritty.toml"
 output_path = "~/.config/alacritty/alacritty.toml"
+
+# cursor (solo colores; se mergean a settings.json sin tocar resto)
+[templates.cursor-colors]
+input_path = "~/.config/matugen/templates/cursor-colors.json"
+output_path = "~/.cache/matugen/cursor-colors.json"
