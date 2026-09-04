@@ -211,5 +211,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("~/.local/bin/rgb-catppuccin 8bd5ca &")
 end)
 
--- ponytail: tema estatico tokyo-night en wayle ([styling.palette], provider=wayle); matugen removido
--- waybar quedo como servicio systemd --user, deshabilitado (config en repo por si se vuelve)
+-- bordes siguen wallpaper: generado por matugen (wp-next lo regenera + hyprctl reload)
+-- ponytail: pcall para no romper arranque en clon fresco sin matugen.lua
+pcall(dofile, os.getenv("HOME") .. "/.config/hypr/matugen.lua")
