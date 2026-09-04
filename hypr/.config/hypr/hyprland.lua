@@ -27,44 +27,29 @@ hl.monitor({
 
 hl.config({
     general = {
-        gaps_in    = 4,
-        gaps_out   = 8,
-        border_size = 2,
-        col = {
-            active_border   = { colors = { "rgb(5b8fd6)", "rgb(8fb4e8)" }, angle = 45 },
-            inactive_border = "rgb(1a2434)",
-        },
+    gaps_in    = 5,
+    gaps_out   = 10,
+    border_size = 2,
+    col = {
+        active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+        inactive_border = "rgba(595959aa)",
+    },
     },
 })
 
 hl.config({
     decoration = {
-        rounding       = 10,
+        rounding       = 0,
         rounding_power = 2,
-        dim_inactive   = true,
-        dim_strength   = 0.15,
-        active_opacity   = 0.92,
-        inactive_opacity = 0.85,
+        dim_inactive   = false,
+        active_opacity   = 1.0,
+        inactive_opacity = 1.0,
         fullscreen_opacity = 1.0,
         blur = {
-            enabled           = true,
-            size              = 6,
-            passes            = 3,
-            ignore_opacity    = true,
-            noise             = 0.01,
-            contrast          = 0.9,
-            brightness        = 0.8,
-            popups            = true,
-            popups_ignorealpha = 0.2,
+            enabled           = false,
         },
         shadow = {
-            enabled          = true,
-            range            = 8,
-            render_power     = 3,
-            color            = "rgb(05080d)",
-            color_inactive   = "rgb(05080d)",
-            offset           = "0 4",
-            scale            = 0.96,
+            enabled          = false,
         },
     },
 })
@@ -80,43 +65,36 @@ hl.config({
     },
 })
 
-hl.config({ cursor = { no_hardware_cursors = true } })
+hl.config({ cursor = { no_hardware_cursors = true, hide_on_key_press = true } })
 hl.config({ animations = { enabled = true } })
 
-hl.curve("catppuccin",  { type = "bezier", points = { {0.05, 0.9},  {0.1, 1.0} } })
-hl.curve("easeOutQuint", { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
-hl.curve("almostLinear", { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
-hl.curve("quick",       { type = "bezier", points = { {0.15, 0},   {0.1, 1}     } })
-hl.curve("overshoot",   { type = "bezier", points = { {0.5, 0.9},   {0.1, 1.1}   } })
+hl.config({
+    dwindle = { preserve_split = true, force_split = 2 },
+    -- evita ventana única gigante en 2560x1440 (default omarchy)
+    layout = { single_window_aspect_ratio = { 1, 1 } },
+})
 
--- Spring presets (smoother, more natural than bezier)
-hl.curve("spring",      { type = "spring", mass = 1, stiffness = 71, dampening = 15 })
-hl.curve("springSlow",  { type = "spring", mass = 1, stiffness = 45, dampening = 20 })
-hl.curve("springFast",  { type = "spring", mass = 0.8, stiffness = 90, dampening = 12 })
+hl.curve("easeOutQuint",  { type = "bezier", points = { {0.23, 1}, {0.32, 1} } })
+hl.curve("easeInOutCubic",{ type = "bezier", points = { {0.65, 0.05}, {0.36, 1} } })
+hl.curve("linear",        { type = "bezier", points = { {0, 0}, {1, 1} } })
+hl.curve("almostLinear",  { type = "bezier", points = { {0.5, 0.5}, {0.75, 1.0} } })
+hl.curve("quick",         { type = "bezier", points = { {0.15, 0}, {0.1, 1} } })
 
-hl.animation({ leaf = "windows",       enabled = true, speed = 4,   spring = "spring",         style = "slide" })
-hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4,   spring = "springFast",      style = "popin 85%" })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 3,   spring = "springSlow",       style = "popin 85%" })
-hl.animation({ leaf = "windowsMove",   enabled = true, speed = 3,   spring = "spring",          style = "slide" })
-hl.animation({ leaf = "fade",          enabled = true, speed = 3,   spring = "springFast" })
-hl.animation({ leaf = "fadeIn",        enabled = true, speed = 2,   spring = "spring" })
-hl.animation({ leaf = "fadeOut",       enabled = true, speed = 2,   spring = "spring" })
-hl.animation({ leaf = "fadeSwitch",    enabled = true, speed = 3,   spring = "spring" })
-hl.animation({ leaf = "fadeDim",       enabled = true, speed = 4,   spring = "spring" })
-hl.animation({ leaf = "fadeLayers",      enabled = true, speed = 3,   spring = "springFast" })
-hl.animation({ leaf = "fadeLayersIn",    enabled = true, speed = 2,   spring = "spring" })
-hl.animation({ leaf = "fadeLayersOut",   enabled = true, speed = 2,   spring = "spring" })
-hl.animation({ leaf = "layers",          enabled = true, speed = 3,   spring = "springFast",      style = "fade" })
-hl.animation({ leaf = "layersIn",        enabled = true, speed = 3,   spring = "springFast",      style = "fade" })
-hl.animation({ leaf = "layersOut",       enabled = true, speed = 2,   spring = "springFast",      style = "fade" })
-hl.animation({ leaf = "workspaces",      enabled = true, speed = 4,   spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "workspacesIn",    enabled = true, speed = 3,   spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "workspacesOut",   enabled = true, speed = 3,   spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "specialWorkspace",  enabled = true, speed = 3, spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 3, spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 3, spring = "spring",          style = "slidefade 20%" })
-hl.animation({ leaf = "border",          enabled = true, speed = 8,   spring = "spring" })
-hl.animation({ leaf = "borderangle",     enabled = false, speed = 30, spring = "spring",          style = "loop" })
+hl.animation({ leaf = "global",        enabled = true, speed = 10,  bezier = "default" })
+hl.animation({ leaf = "border",        enabled = true, speed = 5.39, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windows",       enabled = true, speed = 3.79, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4.1,  bezier = "easeOutQuint", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46, bezier = "almostLinear" })
+hl.animation({ leaf = "fade",          enabled = true, speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "fadeSwitch",    enabled = false })
+hl.animation({ leaf = "layers",        enabled = true, speed = 3.81, bezier = "easeOutQuint" })
+hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,    bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,  bezier = "linear",       style = "fade" })
+hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
+hl.animation({ leaf = "workspaces",    enabled = false })
 
 local mainMod = "SUPER"
 
@@ -229,12 +207,11 @@ hl.config({ input = { follow_mouse = 1, mouse_refocus = false, accel_profile = "
 -- Autostart
 hl.on("hyprland.start", function()
     hl.exec_cmd("nm-applet --indicator")
-    hl.exec_cmd("wayle shell")
+    -- waybar: servicio systemd --user (waybar.service, WantedBy=graphical-session.target)
+    hl.exec_cmd("wayle wallpaper cycle")
     hl.exec_cmd("hyprexpose")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("~/.local/bin/rgb-catppuccin 8bd5ca &")
-    hl.exec_cmd("~/.local/bin/cursor-matugen-watch &")
 end)
 
--- colores dinámicos de matugen (bordes hyprland siguen wallpaper)
-pcall(dofile, os.getenv("HOME") .. "/.config/hypr/matugen.lua")
+-- ponytail: tema estatico tokyo-night; matugen removido (pisaba borde omarchy)
