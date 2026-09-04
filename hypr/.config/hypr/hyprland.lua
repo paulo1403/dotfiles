@@ -103,7 +103,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Window management
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("wayle wallpaper next && notify-send -t 4000 'Wallpaper' 'Cambiado'"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("wp-next"))
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("hyprctl killactive"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())

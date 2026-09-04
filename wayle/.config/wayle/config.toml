@@ -1,4 +1,4 @@
-imports = []
+imports = ["./matugen/colors.toml"]
 
 [general]
 font-sans = "JetBrainsMono Nerd Font"
@@ -74,18 +74,6 @@ pywal-saturation = 0.05
 pywal-contrast = 3.0
 pywal-light = false
 pywal-apply-globally = true
-
-[styling.palette]
-bg = "#1a1b26"
-surface = "#1f2335"
-elevated = "#2a2e42"
-fg = "#a9b1d6"
-fg-muted = "#565f89"
-primary = "#7aa2f7"
-red = "#f7768e"
-yellow = "#e0af68"
-green = "#9ece6a"
-blue = "#7aa2f7"
 
 [modules]
 custom = []
@@ -198,7 +186,7 @@ icon-show = false
 icon-color = "auto"
 icon-bg-color = "accent"
 label-show = true
-label-color = "#a9b1d6"
+label-color = "fg"
 label-max-length = 0
 button-bg-color = "bg-surface-elevated"
 left-click = "dropdown:calendar"
@@ -718,7 +706,7 @@ engine-enabled = true
 transition-type = "simple"
 transition-duration = 0.7
 transition-fps = 60
-cycling-enabled = true
+cycling-enabled = false
 cycling-directory = "/home/paulo/Wallpapers/themes"
 cycling-mode = "shuffle"
 cycling-interval-mins = 30

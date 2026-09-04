@@ -2,6 +2,11 @@
 contrast = 0.0
 variation = "standard"
 
+# wayle (bar, sigue wallpaper; el re-temeo built-in de wayle 0.7.0 no funciona)
+[templates.wayle]
+input_path = "~/.config/matugen/templates/wayle.toml"
+output_path = "~/.config/wayle/matugen/colors.toml"
+
 # gtk3 + gtk4 (misma hoja de colores)
 [templates.gtk3]
 input_path = "~/.config/matugen/templates/gtk.css"
