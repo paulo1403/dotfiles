@@ -70,8 +70,6 @@ hl.config({ animations = { enabled = true } })
 
 hl.config({
     dwindle = { preserve_split = true, force_split = 2 },
-    -- evita ventana única gigante en 2560x1440 (default omarchy)
-    layout = { single_window_aspect_ratio = { 1, 1 } },
 })
 
 hl.curve("easeOutQuint",  { type = "bezier", points = { {0.23, 1}, {0.32, 1} } })
