@@ -1,0 +1,12 @@
+#!/bin/sh
+# sigue ciclo nativo wayle: si DP-1 cambia, sync matugen+RGB vía wp-next
+# ponytail: poll 60s, sin inotify (wayle no emite señal)
+last=$(wayle wallpaper info --monitor DP-1 2>/dev/null | awk '/^Current:/{print $2}')
+while true; do
+  sleep 60
+  cur=$(wayle wallpaper info --monitor DP-1 2>/dev/null | awk '/^Current:/{print $2}')
+  if [ -n "$cur" ] && [ "$cur" != "$last" ]; then
+    last="$cur"
+    "$HOME/.local/bin/wp-next" "$cur" >/dev/null 2>&1
+  fi
+done

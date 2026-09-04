@@ -1,0 +1,34 @@
+#!/bin/sh
+# Rota wallpaper + regenera tema matugen (wayle 0.7.0 no re-temea solo)
+# Uso: wp-next [pic] — sin arg pica random (manual); con arg sync esa (lo usa wp-follow)
+# ponytail: single random pick; weighted/shuffle-history only if user asks
+if [ -n "${1:-}" ]; then pic="$1"; else
+pic=$(find "$HOME/Wallpapers/themes" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) | shuf -n 1)
+fi
+[ -n "$pic" ] || exit 1
+echo "$pic" > "$HOME/.cache/last-wallpaper"
+matugen image --source-color-index 0 "$pic" >/dev/null 2>&1
+# wayle: live-reload vía watch del dir (imports incluidos). set-CONFIG NO: escribe
+# runtime.toml y sombrea el import matugen para siempre. Solo toca config para trigger.
+# ponytail: un touch, cero llamadas CLI
+touch "$HOME/.config/wayle/config.toml"
+if ! wayle wallpaper set "$pic" >/dev/null 2>&1; then
+  notify-send -t 4000 'Wallpaper' "falló wayle set: $pic"
+  exit 1
+fi
+hyprctl reload >/dev/null 2>&1
+# rgb: primary matugen -> openrgb static (G915; G502 wireless no lo ve openrgb, queda onboard)
+# ponytail: usa script existente, sin daemon nuevo
+hex=$(grep '^primary' "$HOME/.config/wayle/matugen/colors.toml" 2>/dev/null | cut -d'"' -f2 | tr -d '#')
+[ -n "$hex" ] && { echo "$hex" > "$HOME/.cache/last-rgb"; "$HOME/.local/bin/rgb-catppuccin" "$hex" >/dev/null 2>&1 & }
+# cursor: merge solo colores, resto de settings intacto
+python3 - "$HOME/.config/Cursor/User/settings.json" "$HOME/.cache/matugen/cursor-colors.json" <<'EOF' >/dev/null 2>&1
+import json, sys
+settings_path, colors_path = sys.argv[1], sys.argv[2]
+settings = json.load(open(settings_path))
+colors = json.load(open(colors_path))
+settings["workbench.colorCustomizations"] = colors["workbench.colorCustomizations"]
+settings["editor.tokenColorCustomizations"] = colors["editor.tokenColorCustomizations"]
+json.dump(settings, open(settings_path, "w"), indent=2)
+EOF
+notify-send -t 4000 'Wallpaper' "$(basename "$pic") ${hex:+#$hex}"

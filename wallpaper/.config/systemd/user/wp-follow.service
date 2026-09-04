@@ -1,0 +1,11 @@
+[Unit]
+Description=Sigue ciclo wayle y sync matugen+RGB
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/wp-follow
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

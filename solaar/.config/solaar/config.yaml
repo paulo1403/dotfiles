@@ -1,0 +1,54 @@
+- 1.1.20
+- _NAME: G915 WIRELESS RGB MECHANICAL GAMING KEYBOARD
+  _absent: [hi-res-scroll, lowres-scroll-mode, hires-smooth-invert, hires-smooth-resolution, hires-scroll-mode, scroll-ratchet, scroll-ratchet-torque, smart-shift,
+    thumb-scroll-invert, thumb-scroll-mode, report_rate_extended, pointer_speed, dpi, dpi_extended, speed-change, backlight, backlight_level, backlight_duration_hands_out,
+    backlight_duration_hands_in, backlight_duration_powered, backlight-timed, led_control, led_zone_, fn-swap, persistent-remappable-keys, disable-keyboard-keys,
+    force-sensing, crown-smooth, divert-crown, multiplatform, gesture2-gestures, gesture2-divert, gesture2-params, analog-button-tuning, haptic-level, haptic-play,
+    sidetone, equalizer, adc_power_management, headset-eco-mode, headset-do-not-disturb, headset-mic-mute, headset-mic-snr, headset-ai-nr, headset-ai-nr-level,
+    headset-sidetone, headset-mic-gain, headset-mix-balance, headset-auto-sleep, headset-onboard-eq, headset-eq-active-preset, headset-advanced-eq, headset_led_control,
+    headset-onboard-effect, headset_per_zone_lighting, headset-signature-startup, headset-signature-shutdown, headset-signature-passive, logivoice-nr-state,
+    logivoice-ng-state, logivoice-comp-state, logivoice-deesser-state, logivoice-depopper-state, logivoice-limiter-state, logivoice-hpf-state, rgb_startup_animation,
+    rgb_shutdown_animation, reprogrammable-keys]
+  _battery: 4097
+  _modelId: B354407CC33E
+  _sensitive: {hires-scroll-mode: ignore, hires-smooth-invert: ignore, hires-smooth-resolution: ignore}
+  _unitId: 5137D574
+  brightness_control: 100
+  change-host: null
+  divert-gkeys: false
+  divert-keys: {209: 0, 210: 0}
+  m-key-leds: {1: false, 2: false, 4: false}
+  mr-key-led: false
+  onboard_profiles: 1
+  report_rate: 1
+  rgb_control: false
+  rgb_idle_effect: !LEDEffectSetting {ID: 128, intensity: 50}
+  rgb_idle_timeout: 60
+  rgb_sleep_timeout: 300
+- _NAME: G502 X PLUS
+  _absent: [hi-res-scroll, lowres-scroll-mode, scroll-ratchet, scroll-ratchet-torque, smart-shift, thumb-scroll-invert, thumb-scroll-mode, report_rate_extended,
+    pointer_speed, dpi_extended, speed-change, backlight, backlight_level, backlight_duration_hands_out, backlight_duration_hands_in, backlight_duration_powered,
+    backlight-timed, led_control, led_zone_, brightness_control, fn-swap, reprogrammable-keys, persistent-remappable-keys, divert-keys, disable-keyboard-keys,
+    force-sensing, crown-smooth, divert-crown, divert-gkeys, m-key-leds, mr-key-led, multiplatform, change-host, gesture2-gestures, gesture2-divert, gesture2-params,
+    analog-button-tuning, haptic-level, haptic-play, sidetone, equalizer, adc_power_management, headset-eco-mode, headset-do-not-disturb, headset-mic-mute,
+    headset-mic-snr, headset-ai-nr, headset-ai-nr-level, headset-sidetone, headset-mic-gain, headset-mix-balance, headset-auto-sleep, headset-onboard-eq,
+    headset-eq-active-preset, headset-advanced-eq, headset_led_control, headset-onboard-effect, headset_per_zone_lighting, headset-signature-startup, headset-signature-shutdown,
+    headset-signature-passive, logivoice-nr-state, logivoice-ng-state, logivoice-comp-state, logivoice-deesser-state, logivoice-depopper-state, logivoice-limiter-state,
+    logivoice-hpf-state, rgb_shutdown_animation]
+  _battery: 4100
+  _modelId: 4099C0950000
+  _sensitive: {hires-scroll-mode: ignore, hires-smooth-invert: ignore, hires-smooth-resolution: ignore}
+  _serial: 1B4CA4EE
+  _unitId: 1B4CA4EE
+  _wpid: '4099'
+  dpi: 1200
+  hires-scroll-mode: false
+  hires-smooth-invert: false
+  hires-smooth-resolution: true
+  onboard_profiles: 1
+  report_rate: 2
+  rgb_control: false
+  rgb_idle_effect: !LEDEffectSetting {ID: 128, intensity: 50}
+  rgb_idle_timeout: 60
+  rgb_sleep_timeout: 300
+  rgb_startup_animation: !RgbBootEffect {ID: 1, color1: 0x000000, color2: 0x000000}
